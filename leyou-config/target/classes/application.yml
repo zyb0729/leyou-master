@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/lyj8330328/leyou-config.git
+          uri: https://github.com/zyb0729/leyou-config-master.git
   rabbitmq:
     #host: 192.168.19.121
     host: localhost
