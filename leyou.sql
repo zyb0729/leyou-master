@@ -1905,7 +1905,7 @@ CREATE TABLE `tb_order`  (
   `promotion_ids` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT '',
   `payment_type` tinyint(1) UNSIGNED ZEROFILL NOT NULL COMMENT '支付类型，1、在线支付，2、货到付款',
   `post_fee` bigint(20) NOT NULL COMMENT '邮费。单位:分。如:20007，表示:200元7分',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '订单创建时间',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '订单创建时间',
   `shipping_name` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '物流名称',
   `shipping_code` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '物流单号',
   `user_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT '用户id',
@@ -1981,12 +1981,12 @@ DROP TABLE IF EXISTS `tb_order_status`;
 CREATE TABLE `tb_order_status`  (
   `order_id` bigint(20) NOT NULL COMMENT '订单id',
   `status` int(1) NULL DEFAULT NULL COMMENT '状态：1、未付款 2、已付款,未发货 3、已发货,未确认 4、交易成功 5、交易关闭 6、已评价',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '订单创建时间',
-  `payment_time` datetime(0) NULL DEFAULT NULL COMMENT '付款时间',
-  `consign_time` datetime(0) NULL DEFAULT NULL COMMENT '发货时间',
-  `end_time` datetime(0) NULL DEFAULT NULL COMMENT '交易完成时间',
-  `close_time` datetime(0) NULL DEFAULT NULL COMMENT '交易关闭时间',
-  `comment_time` datetime(0) NULL DEFAULT NULL COMMENT '评论时间',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '订单创建时间',
+  `payment_time` datetime NULL DEFAULT NULL COMMENT '付款时间',
+  `consign_time` datetime NULL DEFAULT NULL COMMENT '发货时间',
+  `end_time` datetime NULL DEFAULT NULL COMMENT '交易完成时间',
+  `close_time` datetime NULL DEFAULT NULL COMMENT '交易关闭时间',
+  `comment_time` datetime NULL DEFAULT NULL COMMENT '评论时间',
   PRIMARY KEY (`order_id`) USING BTREE,
   INDEX `status`(`status`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单状态表' ROW_FORMAT = Dynamic;
@@ -2026,8 +2026,8 @@ DROP TABLE IF EXISTS `tb_seckill_sku`;
 CREATE TABLE `tb_seckill_sku`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sku_id` bigint(20) NULL DEFAULT NULL COMMENT '秒杀商品id',
-  `start_time` datetime(0) NOT NULL COMMENT '秒杀开始时间',
-  `end_time` datetime(0) NULL DEFAULT NULL COMMENT '秒杀结束时间',
+  `start_time` datetime NOT NULL COMMENT '秒杀开始时间',
+  `end_time` datetime NULL DEFAULT NULL COMMENT '秒杀结束时间',
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标题',
   `seckill_price` bigint(15) NULL DEFAULT NULL COMMENT '秒杀价格，单位为分',
   `image` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商品图片',
@@ -2056,8 +2056,8 @@ CREATE TABLE `tb_sku`  (
   `indexes` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '特有规格属性在spu属性模板中的对应下标组合',
   `own_spec` varchar(1000) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT 'sku的特有规格参数键值对，json格式，反序列化时请使用linkedHashMap，保证有序',
   `enable` tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否有效，0无效，1有效',
-  `create_time` datetime(0) NOT NULL COMMENT '添加时间',
-  `last_update_time` datetime(0) NOT NULL COMMENT '最后修改时间',
+  `create_time` datetime NOT NULL COMMENT '添加时间',
+  `last_update_time` datetime NOT NULL COMMENT '最后修改时间',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `key_spu_id`(`spu_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 27359021635 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'sku表,该表表示具体的商品实体,如黑色的 64g的iphone 8' ROW_FORMAT = Dynamic;
@@ -2781,8 +2781,8 @@ CREATE TABLE `tb_spu`  (
   `brand_id` bigint(20) NOT NULL COMMENT '商品所属品牌id',
   `saleable` tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否上架，0下架，1上架',
   `valid` tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否有效，0已删除，1有效',
-  `create_time` datetime(0) NULL DEFAULT NULL COMMENT '添加时间',
-  `last_update_time` datetime(0) NULL DEFAULT NULL COMMENT '最后修改时间',
+  `create_time` datetime NULL DEFAULT NULL COMMENT '添加时间',
+  `last_update_time` datetime NULL DEFAULT NULL COMMENT '最后修改时间',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 208 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = 'spu表，该表描述的是一个抽象性的商品，比如 iphone8' ROW_FORMAT = Dynamic;
 
@@ -3999,7 +3999,7 @@ CREATE TABLE `tb_user`  (
   `username` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
   `password` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码，加密存储',
   `phone` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '注册手机号',
-  `created` datetime(0) NOT NULL COMMENT '创建时间',
+  `created` datetime NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `username`(`username`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 5037 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;

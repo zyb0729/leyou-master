@@ -15,6 +15,8 @@
         <module>leyou-search</module>
         <module>leyou-goods-web</module>
         <module>leyou-user</module>
+        <module>leyou-mbg</module>
+        <module>leyou-userbak</module>
         <module>leyou-sms</module>
         <module>leyou-authentication</module>
         <module>leyou-cart</module>

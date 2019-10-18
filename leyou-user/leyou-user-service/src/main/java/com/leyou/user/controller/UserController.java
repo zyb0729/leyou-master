@@ -2,6 +2,8 @@ package com.leyou.user.controller;
 
 import com.leyou.user.pojo.User;
 import com.leyou.user.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +19,12 @@ import javax.validation.Valid;
  * @Feature:
  */
 @Controller
+@Api(tags = "UserController", description = "后台用户管理")
 public class UserController {
 
     @Autowired
     private UserService userService;
+
 
     /**
      * 用户数据检查
@@ -28,6 +32,7 @@ public class UserController {
      * @param type
      * @return
      */
+    @ApiOperation(value = "用户数据检查")
     @GetMapping("check/{data}/{type}")
     public ResponseEntity<Boolean> checkUserData(@PathVariable("data") String data,@PathVariable(value = "type") Integer type){
         Boolean result = this.userService.checkData(data,type);

@@ -6,6 +6,8 @@ import com.leyou.auth.properties.JwtProperties;
 import com.leyou.auth.service.AuthService;
 import com.leyou.auth.utils.JwtUtils;
 import com.leyou.user.pojo.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,7 @@ public class AuthServiceImpl implements AuthService {
     @Autowired
     private JwtProperties properties;
 
+    private Logger logger = LoggerFactory.getLogger(AuthServiceImpl.class);
     /**
      * 用户授权
      * @param username
@@ -42,6 +45,7 @@ public class AuthServiceImpl implements AuthService {
             //3.查询结果不为空，则生成token
             String token = JwtUtils.generateToken(new UserInfo(user.getId(), user.getUsername()),
                     properties.getPrivateKey(), properties.getExpire());
+            logger.info("生成token"+token);
             return token;
 
         }catch (Exception e){

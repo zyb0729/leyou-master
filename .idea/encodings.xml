@@ -16,6 +16,8 @@
     <file url="file://$PROJECT_DIR$/leyou-item" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leyou-item/leyou-item-interface" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leyou-item/leyou-item-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou-mbg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou-mbg" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leyou-order" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leyou-order/leyou-order-interface" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leyou-order/leyou-order-service" charset="UTF-8" />
@@ -29,6 +31,7 @@
     <file url="file://$PROJECT_DIR$/leyou-user" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leyou-user/leyou-user-interface" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/leyou-user/leyou-user-service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/leyout-test" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou-userbak" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/leyou-userbak" charset="UTF-8" />
   </component>
 </project>

@@ -17,4 +17,9 @@ public class CodecUtils {
     public static Boolean passwordConfirm(String rawPassword,String encodePassword){
         return new BCryptPasswordEncoder().matches(rawPassword,encodePassword);
     }
+
+    public static void main(String[] args) {
+       String str= CodecUtils.passwordBcryptEncode("zhaoyunbo","zhao940729");
+       System.out.println(str);
+    }
 }

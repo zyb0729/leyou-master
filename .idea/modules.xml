@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/leyou-comment/leyou-comment-service/leyou-comment-service.iml" filepath="$PROJECT_DIR$/leyou-comment/leyou-comment-service/leyou-comment-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../leyou-manage-web-master/leyou-manage-web-master.iml" filepath="$PROJECT_DIR$/../leyou-manage-web-master/leyou-manage-web-master.iml" />
     </modules>
   </component>
 </project>

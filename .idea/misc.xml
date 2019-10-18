@@ -15,7 +15,14 @@
         <option value="$PROJECT_DIR$/leyou-review/leyou-review-servie/pom.xml" />
         <option value="$PROJECT_DIR$/../leyou-config-master/pom.xml" />
         <option value="$PROJECT_DIR$/../leyou-config-master/leyou-config-master/pom.xml" />
+        <option value="$PROJECT_DIR$/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/leyou-userbak/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/leyou-userbak/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="NullableNotNullManager">

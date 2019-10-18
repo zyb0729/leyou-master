@@ -5,7 +5,11 @@ import com.leyou.auth.properties.JwtProperties;
 import com.leyou.auth.service.AuthService;
 import com.leyou.auth.utils.JwtUtils;
 import com.leyou.utils.CookieUtils;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.http.HttpStatus;
@@ -26,8 +30,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 //@EnableConfigurationProperties(JwtProperties.class)
+@Api(tags = "AuthController", description = "登录授权")
 public class AuthController {
 
+    private Logger logger = LoggerFactory.getLogger(AuthController.class);
     @Autowired
     private AuthService authService;
 
@@ -42,6 +48,7 @@ public class AuthController {
      * @param response
      * @return
      */
+    @ApiOperation(value = "登录授权")
     @PostMapping("accredit")
     public ResponseEntity<Void> authentication(
             @RequestParam("username") String username,
@@ -52,9 +59,13 @@ public class AuthController {
         //1.登录校验
         String token = this.authService.authentication(username,password);
         if (StringUtils.isBlank(token)){
+            logger.info("token为空");
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
         //2.将token写入cookie，并指定httpOnly为true，防止通过js获取和修改
+        logger.info("properties.getCookieName()="+properties.getCookieName());
+        logger.info("token="+token);
+        logger.info("token,properties.getCookieMaxAge()="+token,properties.getCookieMaxAge());
         CookieUtils.setCookie(request,response,properties.getCookieName(),token,properties.getCookieMaxAge(),true);
 
         return ResponseEntity.ok().build();
@@ -65,6 +76,7 @@ public class AuthController {
      * @param token
      * @return
      */
+    @ApiOperation(value = "用户验证")
     @GetMapping("verify")
     public ResponseEntity<UserInfo> verifyUser(@CookieValue("LY_TOKEN") String token,HttpServletRequest request,
                                                HttpServletResponse response){
